@@ -1,15 +1,31 @@
+import satData from "./satData";
+import './styling.css'
+
 const Table = ({ sat }) => {
+ 
   return (
       <table>
        <thead>
         <tr>
-          <th>Header TBD</th>
+        <th>Name</th>
+          <th>Type</th>
+          <th>Launch Date</th>
+          <th>Operational Status</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Row Data TBD</td>
+      {sat.map((data, id)=>{
+return(
+<tr key={id}>
+<td>{data.name}</td>
+<td>{data.type}</td>
+<td>{data.launchDate}</td>
+<td>{sat.operational ? "active" : "inactive"} </td>
         </tr>
+)
+      }
+      ) 
+      }
         </tbody>
       </table>
   );
